@@ -1,0 +1,65 @@
+@use "config";
+
+.home {
+    padding: 0 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    max-width: 1240px;
+    margin: 0 auto;
+    &__title-wrap {
+        border-radius: 25px;
+        position: relative;
+        height: 223px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+        &__img {
+            width: 100%;
+        }
+        &__title {
+            position: absolute;
+            width: 100%;
+            background-color: rgba(0,0,0,0.6);
+            line-height: 223px;
+            text-align: center;
+            font-family: "Montserrat", sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+    }
+    &__location-wrapper {
+        border-radius: 25px;
+        padding: 50px;
+        gap: 50px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background-color: config.$color-light-bg;
+        &__card {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 10px;
+            background-color: config.$color-primary;
+            &__title {
+                background: linear-gradient(rgba(255,255,255,0), rgba(10,10,10,0), rgba(4,4,4,0.15), rgba(0,0,0,0.3));
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                span {
+                    text-decoration: none;
+                    margin: 0;
+                    padding: 20px;
+                    width: 40%;
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}
