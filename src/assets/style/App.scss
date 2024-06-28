@@ -4,7 +4,7 @@
   display: grid;
   gap: 50px;
   min-height: 100vh;
-  grid-template-rows: 68px auto 209px;
+  grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
   padding-top: 45px;
   @media screen and (max-width: config.$breakpoint-mobile) {
