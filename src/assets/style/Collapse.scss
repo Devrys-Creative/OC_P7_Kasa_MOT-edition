@@ -1,0 +1,43 @@
+@use "config";
+
+.collapse {
+    position: relative;
+    width: 1023px;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    transition: all ease 0.3s;
+    // height defined in a styled Component
+    &__title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: #FFFFFF;
+        background-color: config.$color-primary;
+        line-height: 50px;
+        border-radius: 5px;
+        padding: 0 20px;
+        font-family: "Montserrat";
+        font-size: 24px;
+        font-weight: 700;
+        color: #FFFFFF;
+        cursor: pointer;
+        &__icon {
+            width: 24px;
+            transition: transform ease 0.3s;
+            &--deployed {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+    &__content-wrapper {
+        background-color: config.$color-light-bg;
+        padding: 20px 20px 20px 20px;
+        transition: all ease 0.2s;
+        &__element {
+            font-size: 18px;
+            font-weight: 400;
+            font-family: "Montserrat", sans-serif;
+        }
+    }
+}

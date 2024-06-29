@@ -1,12 +1,6 @@
 @use "config";
 
 .home {
-    padding: 0 5px;
-    display: flex;
-    flex-direction: column;
-    gap: 42px;
-    max-width: 1240px;
-    margin: 0 auto;
     &__card-wrapper {
         border-radius: 25px;
         padding: 50px;
