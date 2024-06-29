@@ -1,35 +1,30 @@
-import { Link } from "react-router-dom";
+import React from "react";
+
 import "../../assets/style/Home.scss";
 import homeLandscape from "../../assets/images/home-landscape.jpg";
 
+import Banner from "../../components/Banner";
+import Card from "../../components/Card";
+import Error from "../../components/Error";
+import Loading from "../../components/Loading";
+
+import { useFetch } from "../../hooks/useFetch";
+
 function Home() {
+
+    const { isLoading, data, error } = useFetch("/logements.json");
+
     return(
         <main className="home">
-            <div className="home__title-wrap">
-                <img className="home__title-wrap__img" src={ homeLandscape } alt="paysage de falaise de bord de mer" />
-                <h2 className="home__title-wrap__title">Chez vous, partout et ailleurs</h2>
-            </div>
-            <div className="home__location-wrapper">
-                <Link to="/location/3">
-                <article className="home__location-wrapper__card">
-                    <h3 className="home__location-wrapper__card__title"><span>Titre de la location</span></h3>
-                </article>
-                </Link>
-                <Link to="/location/3">
-                <article className="home__location-wrapper__card">
-                    <h3 className="home__location-wrapper__card__title"><span>Titre de la location</span></h3>
-                </article>
-                </Link>
-                <Link to="/location/3">
-                <article className="home__location-wrapper__card">
-                    <h3 className="home__location-wrapper__card__title"><span>Titre de la location</span></h3>
-                </article>
-                </Link>
-                <Link to="/location/3">
-                <article className="home__location-wrapper__card">
-                    <h3 className="home__location-wrapper__card__title"><span>Titre de la location</span></h3>
-                </article>
-                </Link>
+            <Banner key="bannerHome" title="Chez vous, partout et ailleurs" img={ homeLandscape } alt="paysage de falaise de bord de mer" />
+            <div className="home__card-wrapper">
+            { isLoading ? (<Loading />) : ( error ? (<Error />) : (
+                <React.Fragment>
+                    { data.map((element) => (
+                        <Card key={`card${element.id}`} id={element.id} title={element.title} imgPath={ element.cover } />
+                    ))}
+                </React.Fragment>
+            ))}
             </div>
         </main>
     );

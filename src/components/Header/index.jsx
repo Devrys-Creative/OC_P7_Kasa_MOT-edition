@@ -12,7 +12,6 @@ const HiddenTitle = styled.h1`
 function Header() {
 
     const path = useLocation();
-    console.log(path);
 
     return(
 

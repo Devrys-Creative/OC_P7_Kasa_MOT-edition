@@ -1,0 +1,27 @@
+@use "config";
+
+
+.card {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    //background-color: config.$color-primary;
+    overflow: hidden;
+    &__title {
+        background: linear-gradient(rgba(255,255,255,0), rgba(10,10,10,0), rgba(4,4,4,0.15), rgba(0,0,0,0.3));
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        span {
+            text-decoration: none;
+            margin: 0;
+            padding: 20px;
+            width: 60%;
+            font-family: "Montserrat", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+    }
+}
