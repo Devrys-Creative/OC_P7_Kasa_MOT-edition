@@ -8,5 +8,11 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         background-color: config.$color-light-bg;
+        @media screen and (max-width: config.$breakpoint-mobile) {
+            grid-template-columns: 1fr;
+            padding: 0;
+            gap: 25px;
+            background-color: #FFFFFF;
+        }
     }
 }

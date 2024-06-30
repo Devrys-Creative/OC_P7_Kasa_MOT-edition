@@ -11,7 +11,9 @@ function Banner({ title, titleOpacity, img, alt }) {
     return (
         <div className="banner">
             <img className="banner__img" src={ img } alt={ alt } />
-            <StyledTitle $opacity={titleOpacity} className="banner__title">{ title }</StyledTitle>
+            <StyledTitle $opacity={titleOpacity} className="banner__title">
+                {title.map((line, index) => <span key={`title-${index}`}>{ line }</span> )}
+            </StyledTitle>
         </div>
     );
 

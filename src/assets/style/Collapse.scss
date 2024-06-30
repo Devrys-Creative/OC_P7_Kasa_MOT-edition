@@ -1,13 +1,15 @@
 @use "config";
 
 .collapse {
-    position: relative;
     width: 1023px;
     max-width: 100%;
     margin: 0 auto;
     overflow: hidden;
     transition: all ease 0.3s;
     // height defined in a styled Component
+    @media screen {
+        min-height: 30px;
+    }
     &__title {
         display: flex;
         flex-direction: row;
@@ -21,12 +23,19 @@
         font-size: 24px;
         font-weight: 700;
         color: #FFFFFF;
-        cursor: pointer;
+        @media screen and (max-width: config.$breakpoint-mobile) {
+            font-size: 13px;
+            line-height: 30px;
+        }
         &__icon {
             width: 24px;
             transition: transform ease 0.3s;
+            cursor: pointer;
             &--deployed {
                 transform: rotate(-180deg);
+            }
+            @media screen and (max-width: config.$breakpoint-mobile) {
+                width: 13px;
             }
         }
     }
@@ -38,6 +47,9 @@
             font-size: 18px;
             font-weight: 400;
             font-family: "Montserrat", sans-serif;
+            @media screen and (max-width: config.$breakpoint-mobile) {
+                font-size: 12px;
+            }
         }
     }
 }

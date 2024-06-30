@@ -16,7 +16,7 @@ function Home() {
 
     return(
         <main className="home">
-            <Banner key="bannerHome" titleOpacity="0.6" title="Chez vous, partout et ailleurs" img={ homeLandscape } alt="paysage de falaise de bord de mer" />
+            <Banner key="bannerHome" titleOpacity="0.6" title={["Chez vous,","partout et ailleurs"]} img={ homeLandscape } alt="paysage de falaise de bord de mer" />
             <div className="home__card-wrapper">
             { isLoading ? (<Loading />) : ( error ? (<Error />) : (
                 <React.Fragment>
