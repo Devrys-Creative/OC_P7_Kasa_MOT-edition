@@ -1,4 +1,4 @@
-
+@use "config";
 
 .carousel {
     position: relative;
@@ -12,6 +12,9 @@
     color: #FFFFFF;
     align-items: center;
     align-content: center;
+    @media screen and (max-width: config.$breakpoint-mobile) {
+        height: 255px;
+    }
     &__photo {
         grid-column: 1 / span 3;
         grid-row: 1 / span 2;
@@ -27,6 +30,10 @@
         z-index: 2;
         width: 90px;
         padding: 25px;
+        @media screen and (max-width: config.$breakpoint-mobile) {
+            width: 30px;
+            padding: 10px;
+        }
         &--left {
             grid-column: 1 / span 1;
             transform: rotate(180deg);
@@ -45,5 +52,8 @@
         font-family: "Montserrat",sans-serif;
         font-size: 18px;
         font-weight: 500;
+        @media screen and (max-width: config.$breakpoint-mobile) {
+            visibility: hidden;
+        }
     }
 }

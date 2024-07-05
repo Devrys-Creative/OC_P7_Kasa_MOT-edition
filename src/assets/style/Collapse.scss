@@ -40,6 +40,9 @@
         }
         &--small-title {
             font-size: 18px;
+            @media screen and (max-width: config.$breakpoint-mobile) {
+                font-size: 13px;
+            }
         }
     }
     &__content-wrapper {
@@ -47,6 +50,7 @@
         padding: 20px 20px 20px 20px;
         transition: all ease 0.2s;
         &__element {
+            margin: 0;
             font-size: 18px;
             font-weight: 400;
             font-family: "Montserrat", sans-serif;

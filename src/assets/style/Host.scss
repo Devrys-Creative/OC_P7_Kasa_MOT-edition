@@ -12,11 +12,19 @@
         font-size: 18px;
         line-height: 26px;
         font-weight: 500;
+        @media screen and (max-width: config.$breakpoint-mobile) {
+            font-size: 12px;
+            line-height: 18px;
+        }
     }
     &__picture {
         height: 64px;
         width: 64px;
         object-fit: cover;
         border-radius: 50%;
+        @media screen and (max-width: config.$breakpoint-mobile) {
+            height: 32px;
+            width: 32px;
+        }
     }
 }

@@ -4,7 +4,13 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
+    @media screen and (max-width: config.$breakpoint-mobile) {
+        gap: 5px;
+    }
     &__star {
         height: 24px;
+        @media screen and (max-width: config.$breakpoint-mobile) {
+            height: 18px;
+        }
     }
 }
