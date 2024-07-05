@@ -1,0 +1,10 @@
+@use "config";
+
+.rating {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    &__star {
+        height: 24px;
+    }
+}

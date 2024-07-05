@@ -1,0 +1,22 @@
+@use "config";
+
+.host {
+    display: grid;
+    grid-template-columns: repeat(2,min-content);
+    align-items: center;
+    gap: 10px;
+    &__name {
+        text-align: right;
+        color: config.$color-primary;
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 500;
+    }
+    &__picture {
+        height: 64px;
+        width: 64px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}

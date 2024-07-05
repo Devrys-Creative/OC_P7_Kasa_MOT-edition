@@ -1,0 +1,14 @@
+@use "config";
+
+.tag {
+    display: inline-block;
+    border-radius: 10px;
+    line-height: 25px;
+    background-color: config.$color-primary;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    color: #FFFFFF;
+    width: 115px; // ???
+}
