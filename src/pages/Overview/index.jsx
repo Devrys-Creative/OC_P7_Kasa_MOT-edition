@@ -11,6 +11,8 @@ import Rating from "../../components/Rating";
 import Collapse from "../../components/Collapse";
 import Host from "../../components/Host";
 
+import "../../assets/style/Overview.scss";
+
 
 function Overview() {
     const { idLocation } = useParams();
@@ -34,19 +36,19 @@ function Overview() {
         <Error404 />
     ) : (
         <main className="overview">
-            <Carousel picturesList={ locSelected[0].pictures } />
-            <h2>{ locSelected[0].title }</h2>
-            <h3>{ locSelected[0].location }</h3>
+            <Carousel className="overview__carousel" picturesList={ locSelected[0].pictures } />
+            <h2 className="overview__title">{ locSelected[0].title }</h2>
+            <h3 className="overview__location">{ locSelected[0].location }</h3>
             <div className="overview__tags-wrapper">
             { locSelected[0].tags.map((tag,index) => (
-                <Tag key={`tag-${index}`} name={ tag } />
+                <Tag className="overview__tags-wrapper__tag" key={`tag-${index}`} name={ tag } />
             ))}
             </div>
-            <Host name={locSelected[0].host.name} picture={locSelected[0].host.picture} />
-            <Rating value={ locSelected[0].rating } />
+            <Host className="overview__host" name={locSelected[0].host.name} picture={locSelected[0].host.picture} />
+            <Rating className="overview__rating" value={ locSelected[0].rating } />
             <div className="overview__collapses">
-                <Collapse title="Description" content={ [locSelected[0].description] } />
-                <Collapse title="Équipement" content={ locSelected[0].equipments } />
+                <Collapse title="Description" content={ [locSelected[0].description] } smallTitle={true} />
+                <Collapse title="Équipement" content={ locSelected[0].equipments } smallTitle={true} />
             </div>
         </main>
     )

@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import "../../assets/style/Carousel.scss";
-import arrowTop from "../../assets/images/arrow-top.svg";
+import arrowRight from "../../assets/images/carousel-arrow-right.svg";
 
-function Carousel({ picturesList }) {
+function Carousel({ picturesList, className = "" }) {
 
     const picturesKeyMax = picturesList.length - 1;
     const [pictureKey, setpictureKey ] = useState(0);
@@ -15,10 +15,10 @@ function Carousel({ picturesList }) {
     }
 
     return (
-        <div className="carousel">
+        <div className={`carousel ${className}`}>
             <img className="carousel__photo" src={ picturesList[pictureKey] } alt="une photo de l'habitation" />
-            <img className="carousel__arrow carousel__arrow--left" src={ arrowTop } alt="flèche à gauche" onClick={() => previousPicture()} />
-            <img className="carousel__arrow carousel__arrow--right" src={ arrowTop } alt="flèche à gauche" onClick={() => nextPicture()} />
+            <img className="carousel__arrow carousel__arrow--left" src={ arrowRight } alt="flèche à gauche" onClick={() => previousPicture()} />
+            <img className="carousel__arrow carousel__arrow--right" src={ arrowRight } alt="flèche à gauche" onClick={() => nextPicture()} />
             <span className="carousel__photo-number">{`${pictureKey + 1} / ${picturesKeyMax + 1}`}</span>
         </div>
     );

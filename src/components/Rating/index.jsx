@@ -5,7 +5,7 @@ import redStar from "../../assets/images/star-red.svg";
 import greyStar from "../../assets/images/star-grey.svg";
 
 // value : int
-function Rating({ value }) {
+function Rating({ value, className = "" }) {
 
     const [stars, setStars] = useState([]);
     useEffect(() => {
@@ -17,7 +17,7 @@ function Rating({ value }) {
     },[value]);
 
     return (
-        <div className="rating">
+        <div className={`rating ${className}`}>
             { stars.map((star,index) => (
                 <img key={`star-${index}`} className="rating__star" src={ star } alt={ index <= value ? "étoile pleine" : "étoile vide" } />
             ))}

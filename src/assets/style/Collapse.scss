@@ -38,6 +38,9 @@
                 width: 13px;
             }
         }
+        &--small-title {
+            font-size: 18px;
+        }
     }
     &__content-wrapper {
         background-color: config.$color-light-bg;

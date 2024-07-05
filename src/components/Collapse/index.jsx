@@ -9,7 +9,7 @@ const StyledCollapse = styled.div`
     height: ${({$height}) => $height}px;
 `;
 
-function Collapse({title, content}) {
+function Collapse({title, content, smallTitle=false}) {
 
     const [isDeployed , setDeploy] = useState(false);
     function toggleCollapse() { isDeployed ? setDeploy(false) : setDeploy(true) }
@@ -29,9 +29,11 @@ function Collapse({title, content}) {
         };
     }),[isDeployed];
 
+    const addClass = smallTitle ? "collapse__title--small-title" : "";
+
     return (
         <StyledCollapse $height={height} className="collapse">
-            <h3 ref={titleRef} className="collapse__title"><span>{title}</span><img className={`collapse__title__icon${isDeployed ? " collapse__title__icon--deployed" : ""}`} src={ arrowTop } alt="flèche"  onClick={() => toggleCollapse()}/></h3>
+            <h3 ref={titleRef} className={`collapse__title ${addClass}`}><span>{title}</span><img className={`collapse__title__icon${isDeployed ? " collapse__title__icon--deployed" : ""}`} src={ arrowTop } alt="flèche"  onClick={() => toggleCollapse()}/></h3>
             <div ref={contentRef} className="collapse__content-wrapper">
                 { content.map((element,index) => (
                     <p className="collapse__content-wrapper__element" key={`collapse-${index}`}>{element}</p>
