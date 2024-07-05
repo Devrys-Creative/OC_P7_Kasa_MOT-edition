@@ -1,4 +1,5 @@
 import "../../assets/style/Host.scss";
+import PropTypes from "prop-types";
 
 function Host({ name, picture, className = "" }) {
 
@@ -8,6 +9,17 @@ function Host({ name, picture, className = "" }) {
             <img className="host__picture" src={ picture } alt={`photo de ${name}`} />
         </div>
     );
+}
+
+Host.propTypes = {
+    name: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+    className: PropTypes.string
+}
+Host.defaultProps = {
+    name: "",
+    picture: "",
+    className: ""
 }
 
 export default Host;

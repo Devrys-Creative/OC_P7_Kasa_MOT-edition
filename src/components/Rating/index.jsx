@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 import "../../assets/style/Rating.scss";
 import redStar from "../../assets/images/star-red.svg";
@@ -23,6 +24,15 @@ function Rating({ value, className = "" }) {
             ))}
         </div>
     );
+}
+
+Rating.propTypes = {
+    value: PropTypes.number.isRequired,
+    className: PropTypes.string
+}
+Rating.defaultProps = {
+    value: 0,
+    className: ""
 }
 
 export default Rating;

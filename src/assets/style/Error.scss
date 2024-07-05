@@ -1,0 +1,14 @@
+@use "config";
+
+.error {
+    color: config.$color-primary;
+    text-align: center;
+    &__title {
+        font-size: 80px;
+    }
+    &__text {
+        width: 200px;
+        margin: 0 auto;
+        font-size: 24px;
+    }
+}

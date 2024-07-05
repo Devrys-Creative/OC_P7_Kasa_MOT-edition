@@ -18,7 +18,7 @@ function Home() {
         <main className="home">
             <Banner key="bannerHome" titleOpacity="0.6" title={["Chez vous,","partout et ailleurs"]} img={ homeLandscape } alt="paysage de falaise de bord de mer" />
             <div className="home__card-wrapper">
-            { isLoading ? (<Loading />) : ( error ? (<Error />) : (
+            { isLoading ? (<Loading />) : ( !error ? (<Error />) : (
                 <React.Fragment>
                     { data.map((element) => (
                         <Card key={`card${element.id}`} id={element.id} title={element.title} imgPath={ element.cover } />

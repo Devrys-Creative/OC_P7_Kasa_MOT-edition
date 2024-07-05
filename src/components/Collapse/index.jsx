@@ -3,13 +3,15 @@ import arrowTop from "../../assets/images/arrow-top.svg";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useRef } from "react";
+import PropTypes from 'prop-types';
+
 
 
 const StyledCollapse = styled.div`
     height: ${({$height}) => $height}px;
 `;
 
-function Collapse({title, content, smallTitle=false}) {
+function Collapse({title, content, smallTitle}) {
 
     const [isDeployed , setDeploy] = useState(false);
     function toggleCollapse() { isDeployed ? setDeploy(false) : setDeploy(true) }
@@ -43,5 +45,18 @@ function Collapse({title, content, smallTitle=false}) {
     );
 
 }
+
+Collapse.propTypes = {
+    title: PropTypes.string.isRequired,
+    content: PropTypes.arrayOf(PropTypes.string).isRequired,
+    smallTitle: PropTypes.bool
+}
+
+Collapse.defaultProps = {
+    title: 'menu',
+    content: [''],
+    smallTitle: false
+}
+
 
 export default Collapse;
