@@ -19,7 +19,6 @@
         line-height: 50px;
         border-radius: 5px;
         padding: 0 20px;
-        font-family: "Montserrat";
         font-size: 24px;
         font-weight: 700;
         color: #FFFFFF;
@@ -51,9 +50,7 @@
         transition: all ease 0.2s;
         &__element {
             margin: 0;
-            font-size: 18px;
             font-weight: 400;
-            font-family: "Montserrat", sans-serif;
             @media screen and (max-width: config.$breakpoint-mobile) {
                 font-size: 12px;
             }

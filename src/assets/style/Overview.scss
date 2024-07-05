@@ -14,8 +14,6 @@
         grid-column: 1 / span 2;
     }
     &__title {
-        font-family: "Montserrat";
-        font-weight: 500;
         font-size: 36px;
         color: config.$color-primary;
         @media screen and (max-width: config.$breakpoint-mobile) {
@@ -24,9 +22,6 @@
         }
     }
     &__location {
-        font-family: "Monserrat";
-        font-size: 18px;
-        font-weight: 500;
         grid-row: 3 / span 2;
         @media screen and (max-width: config.$breakpoint-mobile) {
             font-size: 14px;

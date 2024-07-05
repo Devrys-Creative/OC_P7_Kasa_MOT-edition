@@ -49,9 +49,6 @@
         bottom: 25px; left: 0;
         text-align: center;
         z-index: 2;
-        font-family: "Montserrat",sans-serif;
-        font-size: 18px;
-        font-weight: 500;
         @media screen and (max-width: config.$breakpoint-mobile) {
             visibility: hidden;
         }

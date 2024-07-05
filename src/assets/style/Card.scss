@@ -7,6 +7,10 @@
     border-radius: 10px;
     //background-color: config.$color-primary;
     overflow: hidden;
+    @media screen and (max-width: config.$breakpoint-mobile) {
+        aspect-ratio: unset;
+        height: 255px;
+    }
     &__title {
         background: linear-gradient(rgba(255,255,255,0), rgba(10,10,10,0), rgba(4,4,4,0.205), rgba(0,0,0,0.5));
         height: 100%;
@@ -18,8 +22,6 @@
             margin: 0;
             padding: 20px;
             width: 60%;
-            font-family: "Montserrat", sans-serif;
-            font-size: 18px;
             font-weight: 700;
             color: #FFFFFF;
         }

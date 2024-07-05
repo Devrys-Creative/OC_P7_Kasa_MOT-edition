@@ -45,7 +45,7 @@ function Overview() {
             ))}
             </div>
             <Host className="overview__host" name={locSelected[0].host.name} picture={locSelected[0].host.picture} />
-            <Rating className="overview__rating" value={ locSelected[0].rating } />
+            <Rating className="overview__rating" value={ Number(locSelected[0].rating) } />
             <div className="overview__collapses">
                 <Collapse title="Description" content={ [locSelected[0].description] } smallTitle={true} />
                 <Collapse title="Équipement" content={ locSelected[0].equipments } smallTitle={true} />

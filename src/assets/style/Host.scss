@@ -8,10 +8,7 @@
     &__name {
         text-align: right;
         color: config.$color-primary;
-        font-family: "Montserrat", sans-serif;
-        font-size: 18px;
         line-height: 26px;
-        font-weight: 500;
         @media screen and (max-width: config.$breakpoint-mobile) {
             font-size: 12px;
             line-height: 18px;

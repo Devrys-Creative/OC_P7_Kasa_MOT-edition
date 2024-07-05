@@ -1,0 +1,24 @@
+@use "config";
+
+@keyframes loopIcon {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    &__img {
+        animation: loopIcon 2s ease infinite;
+    }
+    &__txt {
+        color: config.$color-primary;
+        font-size: 18px;
+    }
+}

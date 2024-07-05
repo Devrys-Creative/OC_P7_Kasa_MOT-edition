@@ -7,6 +7,9 @@
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
   padding-top: 45px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
   @media screen and (max-width: config.$breakpoint-mobile) {
     padding-top: 20px;
     gap: 25px;

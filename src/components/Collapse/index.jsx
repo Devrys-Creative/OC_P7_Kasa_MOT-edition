@@ -24,7 +24,6 @@ function Collapse({title, content, smallTitle}) {
     const titleRef = useRef(null);
     useEffect(() => {
         updateHeight();
-        console.log("new height: " + height);
         window.addEventListener('resize', updateHeight); // Add resize listener
         return () => {
         window.removeEventListener('resize', updateHeight); // Clean up listener
