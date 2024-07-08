@@ -20,14 +20,18 @@ export function useFetch(url) {
         })
         .then((data) => {
             setData(data);
-            setLoading(false);
         })
         .catch((err) => {
             console.error(err);
             setError(true);
+        })
+        .finally(() => {
+            setLoading(false);
         });
 
     }, [url]);
 
+    // console.log(`isloading : ${isLoading} ; error : ${error}`);
+    // console.log(data);
     return { isLoading, data, error };
 }

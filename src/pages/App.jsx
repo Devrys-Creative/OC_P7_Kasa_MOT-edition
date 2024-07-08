@@ -11,13 +11,11 @@ import KasaRouter from '../components/KasaRouter';
 function App() {
 
   return (
-    <React.Fragment>
-      <Router>
-        <Header />
-        <KasaRouter />
-        <Footer />
-      </Router>
-    </React.Fragment>
+    <Router>
+      <Header />
+      <KasaRouter />
+      <Footer />
+    </Router>
   );
 }
 

@@ -10,7 +10,7 @@
     &__star {
         height: 24px;
         @media screen and (max-width: config.$breakpoint-mobile) {
-            height: 18px;
+            height: 14px;
         }
     }
 }

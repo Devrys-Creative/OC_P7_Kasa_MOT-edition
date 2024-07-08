@@ -2,6 +2,8 @@ import Banner from "../../components/Banner";
 import Collapse from "../../components/Collapse";
 import landscapeImg from "../../assets/images/about-landscape.jpg";
 
+import "../../assets/style/About.scss";
+
 
 function About() {
     return (

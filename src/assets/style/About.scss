@@ -1,0 +1,8 @@
+@use "config";
+
+.about {
+    gap: 30px;
+    @media screen and (max-width: config.$breakpoint-mobile) {
+        gap: 20px;
+    }
+}

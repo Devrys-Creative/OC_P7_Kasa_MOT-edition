@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from 'prop-types';
 
-import "../../assets/style/Carousel.scss";
-import arrowRight from "../../assets/images/carousel-arrow-right.svg";
+import "../../assets/style/Slideshow.scss";
+import arrowRight from "../../assets/images/slideshow-arrow-right.svg";
 
 function preloadImages(imgList) {
     for(let img of imgList) {
@@ -11,7 +11,7 @@ function preloadImages(imgList) {
     }
 }
 
-function Carousel({ picturesList, className}) {
+function Slideshow({ picturesList, className}) {
 
 
     // preload img
@@ -42,14 +42,14 @@ function Carousel({ picturesList, className}) {
 }
 
 
-Carousel.propTypes = {
+Slideshow.propTypes = {
     picturesList: PropTypes.arrayOf(PropTypes.string).isRequired,
     className: PropTypes.string
 };
 
-Carousel.defaultProps = {
+Slideshow.defaultProps = {
     picturesList: [''],
     className: ""
 };
 
-export default Carousel;
+export default Slideshow;

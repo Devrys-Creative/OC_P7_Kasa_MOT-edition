@@ -5,7 +5,6 @@
     width: 100%;
     aspect-ratio: 1;
     border-radius: 10px;
-    //background-color: config.$color-primary;
     overflow: hidden;
     @media screen and (max-width: config.$breakpoint-mobile) {
         aspect-ratio: unset;
@@ -22,6 +21,7 @@
             margin: 0;
             padding: 20px;
             width: 60%;
+            font-size: 18px;
             font-weight: 700;
             color: #FFFFFF;
         }

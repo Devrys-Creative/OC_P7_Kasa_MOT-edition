@@ -1,5 +1,5 @@
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Import pages components
 import Home from '../../pages/Home';
@@ -13,7 +13,8 @@ function KasaRouter() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/location/:idLocation" element={<Overview />} />
-            <Route path="*" element={<Error404 />} />
+            <Route path="/404" element={<Error404 />} />
+            <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
     );
 }
