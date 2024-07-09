@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import "../../assets/style/Error.scss";
 
-function Error({reason}) {
+function Error({reason = ""}) {
     return (
         <div className="error">
             <h2 className="error__title">:(</h2>
@@ -15,10 +15,6 @@ function Error({reason}) {
 
 Error.propTypes = {
     reason: PropTypes.string
-}
-
-Error.defaultProps = {
-    reason: ""
 }
 
 export default Error;

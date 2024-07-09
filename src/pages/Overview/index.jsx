@@ -23,19 +23,6 @@ function Overview() {
         !isLoading && setLocSelected(data.filter((element) => element.id === idLocation));
     },[isLoading, data, idLocation]);
 
-    console.log(`isLoading : ${isLoading}`);
-    console.log(`data : `);
-    console.log(data);
-    console.log(`locSelected : `);
-    console.log(locSelected);
-
-    // isLoading : false index.jsx:26:12
-    // data : index.jsx:27:12
-    // Array(20) [ {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, … ]
-    // index.jsx:28:12
-    // locSelected : index.jsx:29:12
-    // undefined
-
     return !locSelected ? (
                 isLoading ? (
                     <Loading />

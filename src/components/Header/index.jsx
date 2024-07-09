@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 // Import style
-import logo from "/logo-kasa.svg";
+import logo from "../../assets/images/logo-kasa.svg";
 import "../../assets/style/Header.scss";
 
 const HiddenTitle = styled.h1`

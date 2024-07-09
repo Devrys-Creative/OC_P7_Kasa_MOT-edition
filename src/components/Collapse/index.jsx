@@ -11,7 +11,7 @@ const StyledCollapse = styled.div`
     height: ${({$height}) => $height}px;
 `;
 
-function Collapse({title, content, smallTitle}) {
+function Collapse({title = "Menu", content = [""], smallTitle = false}) {
 
     const [isDeployed , setDeploy] = useState(false);
     function toggleCollapse() { isDeployed ? setDeploy(false) : setDeploy(true) }
@@ -49,12 +49,6 @@ Collapse.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.arrayOf(PropTypes.string).isRequired,
     smallTitle: PropTypes.bool
-}
-
-Collapse.defaultProps = {
-    title: 'menu',
-    content: [''],
-    smallTitle: false
 }
 
 

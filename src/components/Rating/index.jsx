@@ -6,7 +6,7 @@ import redStar from "../../assets/images/star-red.svg";
 import greyStar from "../../assets/images/star-grey.svg";
 
 // value : int
-function Rating({ value, className = "" }) {
+function Rating({ value = 0, className = "" }) {
 
     const [stars, setStars] = useState([]);
     useEffect(() => {
@@ -29,10 +29,6 @@ function Rating({ value, className = "" }) {
 Rating.propTypes = {
     value: PropTypes.number.isRequired,
     className: PropTypes.string
-}
-Rating.defaultProps = {
-    value: 0,
-    className: ""
 }
 
 export default Rating;

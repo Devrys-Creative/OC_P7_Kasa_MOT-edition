@@ -10,7 +10,7 @@ const StyledArticle = styled.article`
     background-size: cover;
 `;
 
-function Card({ id, title, imgPath }) {
+function Card({ id, title = "", imgPath ="" }) {
     
     return (
         <Link to={`/location/${ id }`}>
@@ -25,11 +25,6 @@ Card.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string,
     imgPath: PropTypes.string.isRequired
-}
-
-Card.defaultProps = {
-    title: "",
-    imgPath: ""
 }
 
 export default Card;

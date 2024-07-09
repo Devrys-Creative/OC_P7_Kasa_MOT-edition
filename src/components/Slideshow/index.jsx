@@ -11,7 +11,7 @@ function preloadImages(imgList) {
     }
 }
 
-function Slideshow({ picturesList, className}) {
+function Slideshow({ picturesList = [""], className = ""}) {
 
 
     // preload img
@@ -45,11 +45,6 @@ function Slideshow({ picturesList, className}) {
 Slideshow.propTypes = {
     picturesList: PropTypes.arrayOf(PropTypes.string).isRequired,
     className: PropTypes.string
-};
-
-Slideshow.defaultProps = {
-    picturesList: [''],
-    className: ""
 };
 
 export default Slideshow;
