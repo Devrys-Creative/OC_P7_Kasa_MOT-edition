@@ -29,8 +29,8 @@ function Overview() {
 
     // Change status of isLoading => store selected rent in State
     useEffect(() => {
-        !isLoading && setLocSelected(data.filter((element) => element.id === idLocation));
-    },[isLoading, data, idLocation]);
+        !isLoading && !error && setLocSelected(data.filter((element) => element.id === idLocation));
+    },[isLoading, data, error, idLocation]);
 
     // useEffect is async so isLoading can be false and locSelected not defined yet
     // => check locSelected status first (not defined = error or loading ; defined = display or 404)
