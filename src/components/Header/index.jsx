@@ -1,16 +1,21 @@
+// Import React components
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
-// Import style
+// Import Style
 import logo from "../../assets/images/logo-kasa.svg";
-import "../../assets/style/Header.scss";
+import "../../assets/style/header.scss";
 
+// Styled component to hide H1 (used for SEO)
 const HiddenTitle = styled.h1`
     display: none;
 `;
 
+// Component to show the app header with menu links
 function Header() {
 
+    // get current relative path
+    // to change menu link when page is active
     const path = useLocation();
 
     return(

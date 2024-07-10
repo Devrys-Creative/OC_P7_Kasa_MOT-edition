@@ -1,17 +1,23 @@
+// Import React components
 import React from "react";
 
-import "../../assets/style/Home.scss";
+// Import Style
+import "../../assets/style/home.scss";
 import homeLandscape from "../../assets/images/home-landscape.jpg";
 
+// Import project components
 import Banner from "../../components/Banner";
 import Card from "../../components/Card";
 import Error from "../../components/Error";
 import Loading from "../../components/Loading";
 
+// Import projet custom hook
 import { useFetch } from "../../hooks/useFetch";
 
+// Home page
 function Home() {
 
+    // API : load rents (currently from json)
     const { isLoading, data, error } = useFetch("/logements.json");
 
     return(

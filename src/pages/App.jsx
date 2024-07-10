@@ -1,5 +1,5 @@
 
-import '../assets/style/App.scss';
+import '../assets/style/app.scss';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 // Import components

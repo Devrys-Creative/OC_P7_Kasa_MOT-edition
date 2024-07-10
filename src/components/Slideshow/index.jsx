@@ -1,9 +1,12 @@
+// Import React components
 import React, { useState } from "react";
 import PropTypes from 'prop-types';
 
-import "../../assets/style/Slideshow.scss";
+// Import Style
+import "../../assets/style/slideshow.scss";
 import arrowRight from "../../assets/images/slideshow-arrow-right.svg";
 
+// Function used to preload slideshow images (less or no delay when first slide to each one)
 function preloadImages(imgList) {
     for(let img of imgList) {
         let preloadedImg = new Image();
@@ -11,13 +14,13 @@ function preloadImages(imgList) {
     }
 }
 
+// Component to show a slideshow with arrow and image counter
 function Slideshow({ picturesList = [""], className = ""}) {
 
-
-    // preload img
-
+    // preload img list
     preloadImages(picturesList);
 
+    // State to store current pictures key
     const picturesKeyMax = picturesList.length - 1;
     const [pictureKey, setpictureKey ] = useState(0);
     function nextPicture() {

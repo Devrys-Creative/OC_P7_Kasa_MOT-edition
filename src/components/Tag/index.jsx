@@ -1,8 +1,10 @@
+// Import React components
 import PropTypes from 'prop-types';
 
-import "../../assets/style/Tag.scss";
+// Import Style
+import "../../assets/style/tag.scss";
 
-
+// Component to show tag
 function Tag({ name = "" }) {
     return (<span className="tag">{ name }</span>);
 }

@@ -1,6 +1,10 @@
-import "../../assets/style/Host.scss";
+// Import React component
 import PropTypes from "prop-types";
 
+// Import Style
+import "../../assets/style/host.scss";
+
+// Component to display the host
 function Host({ name = "", picture = "", className = "" }) {
 
     return (

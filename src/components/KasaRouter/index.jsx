@@ -1,12 +1,13 @@
-
+// import React components
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-// Import pages components
+// Import projet components
 import Home from '../../pages/Home';
 import About from '../../pages/About';
 import Overview from '../../pages/Overview';
 import Error404 from '../../pages/404';
 
+// define projet React routes
 function KasaRouter() {
     return (
         <Routes>

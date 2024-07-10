@@ -1,6 +1,8 @@
+// Import Style
 import img from "/favicon.svg";
-import "../../assets/style/Loading.scss";
+import "../../assets/style/loading.scss";
 
+// Component to show a loader
 function Loading() {
     return (
         <div className="loading">

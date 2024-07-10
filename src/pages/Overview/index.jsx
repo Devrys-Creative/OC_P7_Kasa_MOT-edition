@@ -1,28 +1,39 @@
+// Import React components
 import { Navigate, useParams } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
+import { useEffect, useState } from "react";
 
+// Import project components
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";
-import { useEffect, useState } from "react";
 import Tag from "../../components/Tag";
 import Slideshow from "../../components/Slideshow";
 import Rating from "../../components/Rating";
 import Collapse from "../../components/Collapse";
 import Host from "../../components/Host";
 
-import "../../assets/style/Overview.scss";
+// Import Style
+import "../../assets/style/overview.scss";
 
-
+// Overview page : view details about a rent
 function Overview() {
+
+    // idLocation is visible in the url
     const { idLocation } = useParams();
 
+    // Load data from API (currently json)
     const { isLoading, data, error } = useFetch("/logements.json");
+
+    // State to store selected rent
     const [ locSelected, setLocSelected] = useState();
 
+    // Change status of isLoading => store selected rent in State
     useEffect(() => {
         !isLoading && setLocSelected(data.filter((element) => element.id === idLocation));
     },[isLoading, data, idLocation]);
 
+    // useEffect is async so isLoading can be false and locSelected not defined yet
+    // => check locSelected status first (not defined = error or loading ; defined = display or 404)
     return !locSelected ? (
                 isLoading ? (
                     <Loading />

@@ -1,6 +1,8 @@
-import "../../assets/style/Footer.scss";
+// Import Style
+import "../../assets/style/footer.scss";
 import logo from "../../assets/images/logo-kasa-white.svg";
 
+// Component to display the app footer
 function Footer() {
     return (
         <footer className="footer">

@@ -1,10 +1,12 @@
+// Import Projet components
 import Banner from "../../components/Banner";
 import Collapse from "../../components/Collapse";
 import landscapeImg from "../../assets/images/about-landscape.jpg";
 
-import "../../assets/style/About.scss";
+// Import style
+import "../../assets/style/about.scss";
 
-
+// Page "about"
 function About() {
     return (
         <main className="about">

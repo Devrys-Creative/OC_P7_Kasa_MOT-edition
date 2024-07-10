@@ -1,7 +1,10 @@
+// Import React components
 import PropTypes from "prop-types";
 
-import "../../assets/style/Error.scss";
+// Import Style
+import "../../assets/style/error.scss";
 
+// Component to display error in engine (for example API error)
 function Error({reason = ""}) {
     return (
         <div className="error">

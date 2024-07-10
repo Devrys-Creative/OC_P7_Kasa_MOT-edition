@@ -1,6 +1,10 @@
+// Import React Components
 import { Link } from "react-router-dom";
+
+// Import Style
 import "../../assets/style/404.scss";
 
+// Page 404 displayed when a route is not fount
 function Error404() {
     return (
         <main className='err404'>
