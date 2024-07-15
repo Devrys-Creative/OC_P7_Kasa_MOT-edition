@@ -1,11 +1,11 @@
 // import React components
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React, { Routes, Route, Navigate } from 'react-router-dom';
 
 // Import projet components
-import Home from '../../pages/Home';
-import About from '../../pages/About';
-import Overview from '../../pages/Overview';
-import Error404 from '../../pages/404';
+import Home from '../../pages/Home/index.tsx';
+import About from '../../pages/About/index.tsx';
+import Overview from '../../pages/Overview/index.tsx';
+import Error404 from '../../pages/404/index.tsx';
 
 // define projet React routes
 function KasaRouter() {

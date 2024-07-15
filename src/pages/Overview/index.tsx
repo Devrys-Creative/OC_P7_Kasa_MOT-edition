@@ -1,16 +1,18 @@
 // Import React components
 import { Navigate, useParams } from "react-router-dom";
-import { useFetch } from "../../hooks/useFetch";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+
+// Import custom hooks
+import { useFetch } from "../../hooks/useFetch.tsx";
 
 // Import project components
-import Loading from "../../components/Loading";
-import Error from "../../components/Error";
-import Tag from "../../components/Tag";
-import Slideshow from "../../components/Slideshow";
-import Rating from "../../components/Rating";
+import Loading from "../../components/Loading/index.tsx";
+import Error from "../../components/Error/index.tsx";
+import Tag from "../../components/Tag/index.tsx";
+import Slideshow from "../../components/Slideshow/index.tsx";
+import Rating from "../../components/Rating/index.tsx";
 import Collapse from "../../components/Collapse";
-import Host from "../../components/Host";
+import Host from "../../components/Host/index.tsx";
 
 // Import Style
 import "../../assets/style/overview.scss";
@@ -19,17 +21,20 @@ import "../../assets/style/overview.scss";
 function Overview() {
 
     // idLocation is visible in the url
-    const { idLocation } = useParams();
+    const { idLocation } = useParams<string>();
 
     // Load data from API (currently json)
-    const { isLoading, data, error } = useFetch("/logements.json");
+    const { isLoading, data, error } = useFetch<Rent[]>("/logements.json");
 
     // State to store selected rent
-    const [ locSelected, setLocSelected] = useState();
+    const [ locSelected, setLocSelected] = useState<Rent[]| undefined>(undefined);
 
     // Change status of isLoading => store selected rent in State
     useEffect(() => {
-        !isLoading && !error && setLocSelected(data.filter((element) => element.id === idLocation));
+        if(!isLoading && !error && data) {
+            const dataFiltered = data.filter((element) => element.id === idLocation);
+            dataFiltered && setLocSelected(dataFiltered);
+        }
     },[isLoading, data, error, idLocation]);
 
     // useEffect is async so isLoading can be false and locSelected not defined yet
@@ -59,7 +64,7 @@ function Overview() {
                             <Collapse title="Description" smallTitle={true}>
                                 <p>{ locSelected[0].description }</p>
                             </Collapse>
-                            <Collapse title="Équipement" content={ locSelected[0].equipments } smallTitle={true}>
+                            <Collapse title="Équipement" smallTitle={true}>
                                 <ul>
                                 { locSelected[0].equipments.map((equipment,index) => (
                                         <li key={`collapse-li-elmt-${index}`}>{equipment}</li>

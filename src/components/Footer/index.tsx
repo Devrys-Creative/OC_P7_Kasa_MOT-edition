@@ -1,3 +1,6 @@
+// Import React component
+import React from "react";
+
 // Import Style
 import "../../assets/style/footer.scss";
 import logo from "../../assets/images/logo-kasa-white.svg";

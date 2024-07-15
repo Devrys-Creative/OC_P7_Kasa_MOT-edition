@@ -1,3 +1,6 @@
+// import React components
+import React from "react";
+
 // Import Style
 import img from "/favicon.svg";
 import "../../assets/style/loading.scss";

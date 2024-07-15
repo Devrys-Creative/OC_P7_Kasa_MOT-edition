@@ -15,14 +15,17 @@ function preloadImages(imgList) {
 }
 
 // Component to show a slideshow with arrow and image counter
-function Slideshow({ picturesList = [""], className = ""}) {
+const Slideshow:React.FC<{
+    picturesList: string[];
+    className:string;
+}> = ({ picturesList = [""], className = ""}) => {
 
     // preload img list
     preloadImages(picturesList);
 
     // State to store current pictures key
-    const picturesKeyMax = picturesList.length - 1;
-    const [pictureKey, setpictureKey ] = useState(0);
+    const picturesKeyMax:number = picturesList.length - 1;
+    const [pictureKey, setpictureKey ] = useState<number>(0);
     function nextPicture() {
         pictureKey + 1 <= picturesKeyMax && pictureKey + 1 >= 0 ? setpictureKey(pictureKey + 1) : setpictureKey(0);
     }
@@ -43,11 +46,5 @@ function Slideshow({ picturesList = [""], className = ""}) {
         </div>
     );
 }
-
-
-Slideshow.propTypes = {
-    picturesList: PropTypes.arrayOf(PropTypes.string).isRequired,
-    className: PropTypes.string
-};
 
 export default Slideshow;

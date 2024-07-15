@@ -1,20 +1,29 @@
 // Import React components
-import { useEffect, useState } from "react";
+import { ReactElement, ReactNode, useEffect, useState } from "react";
 import styled from "styled-components";
 import React, { useRef } from "react";
-import PropTypes from 'prop-types';
 
 // Import style
 import "../../assets/style/collapse.scss";
 import arrowTop from "../../assets/images/arrow-top.svg";
 
 // Styled component to toggle collapse element with transition
-const StyledCollapse = styled.div`
+const StyledCollapse = styled.div<{ $height: number }>`
     height: ${({$height}) => $height}px;
 `;
 
+
+interface ChildProps {
+    className?:string;
+};
+
+
 // Component to display a collapse menu
-function Collapse({title = "Menu", children , smallTitle = false}) {
+const Collapse:React.FC<{
+    title:string;
+    children:ReactNode;
+    smallTitle?:boolean;
+}> = ({title = "Menu", children , smallTitle = false}) => {
 
     // State to define if menu is deployed or not
     const [isDeployed , setDeploy] = useState(false);
@@ -25,14 +34,17 @@ function Collapse({title = "Menu", children , smallTitle = false}) {
     // current.scrollHeight is the "auto" with of element
     const [height, setHeight] = useState(50);
     function updateHeight() {
-        setHeight(isDeployed ? contentRef.current.scrollHeight + titleRef.current.scrollHeight : titleRef.current.scrollHeight);
+        const newHeight:number = isDeployed ? contentDiv.scrollHeight + titleHeading.scrollHeight : titleHeading.scrollHeight;
+        setHeight(newHeight);
     }
-    const contentRef = useRef(null);
-    const titleRef = useRef(null);
+    const contentRef = useRef<HTMLDivElement>(null);
+    const contentDiv = contentRef.current as HTMLDivElement;
+    const titleRef = useRef<HTMLHeadingElement>(null);
+    const titleHeading = titleRef.current as HTMLHeadingElement;
 
     // event Listener over the menu arrow
     useEffect(() => {
-        updateHeight();
+        contentDiv && titleHeading && updateHeight();
         window.addEventListener('resize', updateHeight); // Add resize listener
         return () => {
             window.removeEventListener('resize', updateHeight); // Clean up listener when component is unmount (avoid multiple actions on the same even + memory leak)
@@ -45,12 +57,12 @@ function Collapse({title = "Menu", children , smallTitle = false}) {
     // Adding className to children elements
     const childrenWithClasses = React.Children.map(children, child => {
         if (React.isValidElement(child)) {
-            return React.cloneElement(child, {
-                className: `${child.props.className || ''} collapse__content-wrapper__element`
+            return React.cloneElement(child as React.ReactElement<ChildProps>, {
+                className: `${child.props} collapse__content-wrapper__element`
             });
         }
         return child;
-    });
+    }) as React.ReactElement[];
 
     return (
         <StyledCollapse $height={height} className="collapse">
@@ -62,15 +74,5 @@ function Collapse({title = "Menu", children , smallTitle = false}) {
     );
 
 }
-
-Collapse.propTypes = {
-    title: PropTypes.string.isRequired,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node
-    ]).isRequired,
-    smallTitle: PropTypes.bool
-}
-
 
 export default Collapse;

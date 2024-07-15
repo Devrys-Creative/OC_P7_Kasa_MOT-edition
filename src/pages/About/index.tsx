@@ -1,6 +1,9 @@
+// Import react components
+import React from "react";
+
 // Import Projet components
-import Banner from "../../components/Banner";
-import Collapse from "../../components/Collapse";
+import Banner from "../../components/Banner/index.tsx";
+import Collapse from "../../components/Collapse/index.tsx";
 import landscapeImg from "../../assets/images/about-landscape.jpg";
 
 // Import style

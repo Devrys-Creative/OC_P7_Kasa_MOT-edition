@@ -2,12 +2,12 @@
 import { useState, useEffect } from 'react';
 
 // useFetch : transmit API requests
-export function useFetch(url) {
+export function useFetch<T>(url: string) {
 
     // States to store loading / error status + data when received
-    const [data, setData] = useState({});
-    const [isLoading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+    const [data, setData] = useState<T | null>(null);
+    const [isLoading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<boolean>(false);
 
     useEffect(() => {
 

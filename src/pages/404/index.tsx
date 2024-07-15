@@ -1,4 +1,5 @@
 // Import React Components
+import React from "react";
 import { Link } from "react-router-dom";
 
 // Import Style

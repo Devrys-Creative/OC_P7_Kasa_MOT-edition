@@ -1,18 +1,25 @@
 // import React components
+import React from "react";
 import styled from "styled-components";
-import PropTypes from 'prop-types';
 
 // Import style
 import "../../assets/style/banner.scss";
 
 // Styled component to use prop for opacity
-const StyledTitle = styled.h2`
+const StyledTitle = styled.h2<{ $opacity: string}>`
     background-color: rgba(0,0,0,${({$opacity}) => $opacity});
-
 `;
 
+// props types
+interface bannerProps {
+    title: string[];
+    titleOpacity: string;
+    img: string;
+    alt: string;
+}
+
 // Component to display a banner
-function Banner({ title = [""], titleOpacity = "0.5", img = "", alt = "" }) {
+const Banner: React.FC<bannerProps> = ({ title = [""], titleOpacity = "0.5", img = "", alt = "" }) => {
     return (
         <div className="banner">
             <img className="banner__img" src={ img } alt={ alt } />
@@ -22,13 +29,6 @@ function Banner({ title = [""], titleOpacity = "0.5", img = "", alt = "" }) {
         </div>
     );
 
-}
-
-Banner.propTypes = {
-    title: PropTypes.arrayOf(PropTypes.string).isRequired,
-    titleOpacity: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired
 }
 
 export default Banner;

@@ -1,5 +1,5 @@
 // Import React components
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 // Import Style
@@ -12,11 +12,12 @@ function Rating({ value = 0, className = "" }) {
 
     // State store stars list for a defined rate / 5
     // value > 5 => value=5 ; value < 0 => value=0
-    const [stars, setStars] = useState([]);
+    const [stars, setStars] = useState<string[]>([]);
     useEffect(() => {
-        let starsList = [];
+        let starsList:string[] = [];
         for(let i=0;i<5;i++) {
-            starsList.push(i <= value ? redStar : greyStar);
+            const newStar:string = i <= value ? redStar : greyStar;
+            starsList.push(newStar);
         }
         setStars(starsList);
     },[value]);
@@ -28,11 +29,6 @@ function Rating({ value = 0, className = "" }) {
             ))}
         </div>
     );
-}
-
-Rating.propTypes = {
-    value: PropTypes.number.isRequired,
-    className: PropTypes.string
 }
 
 export default Rating;

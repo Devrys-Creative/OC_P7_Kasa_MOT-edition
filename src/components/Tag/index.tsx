@@ -1,16 +1,19 @@
 // Import React components
-import PropTypes from 'prop-types';
+import React from "react";
 
 // Import Style
 import "../../assets/style/tag.scss";
 
+// Types props
+interface TagProps {
+    name: string;
+    className?: string;
+}
+
 // Component to show tag
-function Tag({ name = "" }) {
+const Tag: React.FC<TagProps> = ({ name = "", className = ""}) => {
     return (<span className="tag">{ name }</span>);
 }
 
-Tag.propTypes = {
-    name: PropTypes.string.isRequired
-};
 
 export default Tag;
