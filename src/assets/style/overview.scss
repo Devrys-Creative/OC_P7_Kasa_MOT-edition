@@ -8,11 +8,13 @@
     align-items: center;
     @media screen and (max-width: config.$breakpoint-mobile) {
         grid-auto-flow: dense;
-        gap: 0;
     }
     &__carousel {
         grid-column: 1 / span 2;
         margin-bottom: 20px;
+        @media screen and (max-width: config.$breakpoint-mobile) {
+            margin-bottom: 0;
+        }
     }
     &__title {
         font-size: 36px;
