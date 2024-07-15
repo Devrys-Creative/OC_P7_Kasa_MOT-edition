@@ -1,7 +1,7 @@
 // Import React components
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import PropTypes from 'prop-types';
 
 // Import style
@@ -14,7 +14,7 @@ const StyledCollapse = styled.div`
 `;
 
 // Component to display a collapse menu
-function Collapse({title = "Menu", content = [""], smallTitle = false}) {
+function Collapse({title = "Menu", children , smallTitle = false}) {
 
     // State to define if menu is deployed or not
     const [isDeployed , setDeploy] = useState(false);
@@ -42,13 +42,21 @@ function Collapse({title = "Menu", content = [""], smallTitle = false}) {
     // style variation depend on prop
     const addClass = smallTitle ? "collapse__title--small-title" : "";
 
+    // Adding className to children elements
+    const childrenWithClasses = React.Children.map(children, child => {
+        if (React.isValidElement(child)) {
+            return React.cloneElement(child, {
+                className: `${child.props.className || ''} collapse__content-wrapper__element`
+            });
+        }
+        return child;
+    });
+
     return (
         <StyledCollapse $height={height} className="collapse">
             <h3 ref={titleRef} className={`collapse__title ${addClass}`}><span>{title}</span><img className={`collapse__title__icon${isDeployed ? " collapse__title__icon--deployed" : ""}`} src={ arrowTop } alt="flèche"  onClick={() => toggleCollapse()}/></h3>
             <div ref={contentRef} className="collapse__content-wrapper">
-                { content.map((element,index) => (
-                    <p className="collapse__content-wrapper__element" key={`collapse-${index}`}>{element}</p>
-                ))}
+                { childrenWithClasses }
             </div>
         </StyledCollapse>
     );
@@ -57,7 +65,10 @@ function Collapse({title = "Menu", content = [""], smallTitle = false}) {
 
 Collapse.propTypes = {
     title: PropTypes.string.isRequired,
-    content: PropTypes.arrayOf(PropTypes.string).isRequired,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]).isRequired,
     smallTitle: PropTypes.bool
 }
 

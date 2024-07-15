@@ -51,6 +51,8 @@
         &__element {
             margin: 0;
             font-weight: 400;
+            padding:0;
+            list-style-type: none;
             @media screen and (max-width: config.$breakpoint-mobile) {
                 font-size: 12px;
             }

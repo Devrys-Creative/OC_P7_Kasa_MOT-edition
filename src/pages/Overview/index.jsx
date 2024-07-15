@@ -56,8 +56,16 @@ function Overview() {
                         <Host className="overview__host" name={locSelected[0].host.name} picture={locSelected[0].host.picture} />
                         <Rating className="overview__rating" value={ Number(locSelected[0].rating) } />
                         <div className="overview__collapses">
-                            <Collapse title="Description" content={ [locSelected[0].description] } smallTitle={true} />
-                            <Collapse title="Équipement" content={ locSelected[0].equipments } smallTitle={true} />
+                            <Collapse title="Description" smallTitle={true}>
+                                <p>{ locSelected[0].description }</p>
+                            </Collapse>
+                            <Collapse title="Équipement" content={ locSelected[0].equipments } smallTitle={true}>
+                                <ul>
+                                { locSelected[0].equipments.map((equipment,index) => (
+                                        <li key={`collapse-li-elmt-${index}`}>{equipment}</li>
+                                ))}
+                                </ul>
+                            </Collapse>
                         </div>
                     </main>
                 )
